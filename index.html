@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LifeOS - Gamified Anti-Procrastination and Productivity Platform. Level up your habits, master study tracks, and finish quests.">
+    
+    <!-- Title and Favicon -->
+    <title>LifeOS | Level Up Your Productivity</title>
+    
+    <!-- FontAwesome CDNs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="src/css/style.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Main App Container Grid -->
+    <div class="app-container">
+        
+        <!-- Glassmorphism Navigation Sidebar -->
+        <aside class="app-sidebar glass-panel">
+            <div class="sidebar-logo">
+                <i class="fas fa-gamepad logo-icon"></i>
+                <span class="logo-text">LifeOS</span>
+            </div>
+
+            <!-- Profile Summary Widget -->
+            <div class="sidebar-profile">
+                <div class="profile-avatar-container">
+                    <img id="sidebar-avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=LifeOSAgent" class="sidebar-avatar" alt="Avatar">
+                    <span id="sidebar-level-lbl" class="level-badge">1</span>
+                </div>
+                <div class="profile-details">
+                    <span id="sidebar-name-lbl" class="profile-name">Agent Prodigy</span>
+                    <span class="profile-title">Apprentice</span>
+                </div>
+            </div>
+
+            <!-- Sidebar Navigation Links -->
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-link active">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#tasks" class="nav-link">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks & Quests</span>
+                </a>
+                <a href="#skilltree" class="nav-link">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Skill Tree</span>
+                </a>
+                <a href="#analytics" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#achievements" class="nav-link">
+                    <i class="fas fa-trophy"></i>
+                    <span>Achievements</span>
+                </a>
+                <a href="#leaderboard" class="nav-link">
+                    <i class="fas fa-medal"></i>
+                    <span>Leaderboard</span>
+                </a>
+                <a href="#focus" class="nav-link">
+                    <i class="fas fa-hourglass-half"></i>
+                    <span>Focus Mode</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-logout" id="btn-reset-app" title="Reset all progress data">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Reset Data</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Viewport Layout -->
+        <main class="main-viewport">
+            
+            <!-- Sticky Navigation Header -->
+            <header class="app-header">
+                
+                <!-- Dynamic View Title -->
+                <div class="header-title-section">
+                    <h1 id="header-title-lbl">Dashboard</h1>
+                    <p id="header-subtitle-lbl">Welcome back, Agent!</p>
+                </div>
+
+                <!-- Global stats indicators -->
+                <div class="header-status-section">
+                    
+                    <!-- XP Progress Tracker -->
+                    <div class="xp-tracker">
+                        <div class="xp-label-row">
+                            <span>XP Level <b id="header-lvl-val">1</b></span>
+                            <span><b id="header-xp-val" class="xp-val">0</b>/<b id="header-xp-req">100</b> XP</span>
+                        </div>
+                        <div class="xp-bar-outer">
+                            <div id="header-xp-bar" class="xp-bar-inner" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Streaks Fire indicator -->
+                    <div class="streak-counter" title="Productivity Streak count">
+                        <i class="fas fa-fire streak-fire-icon"></i>
+                        <span id="header-streak-lbl">3</span>
+                    </div>
+
+                    <!-- Notification Button/Actions Drawer -->
+                    <div class="header-actions">
+                        <button class="action-btn" id="btn-noti-toggle" title="System Notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="btn-indicator" id="noti-indicator" style="display: none;"></span>
+                        </button>
+                        
+                        <!-- Notifications List Panel -->
+                        <div class="notifications-panel glass-panel" id="notifications-drawer">
+                            <div class="noti-header">
+                                <h4>Notifications</h4>
+                                <button class="noti-clear" id="btn-noti-clear">Clear</button>
+                            </div>
+                            <div class="noti-list" id="noti-list-container">
+                                <!-- Dynamic notifications -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- ==========================================================
+                 Dynamic View Slots
+                 ========================================================== -->
+            <div id="view-dashboard" class="page-view active"></div>
+            <div id="view-tasks" class="page-view"></div>
+            <div id="view-skilltree" class="page-view"></div>
+            <div id="view-analytics" class="page-view"></div>
+            <div id="view-achievements" class="page-view"></div>
+            <div id="view-leaderboard" class="page-view"></div>
+            <div id="view-focus" class="page-view"></div>
+
+        </main>
+
+    </div>
+
+    <!-- Master Bootstrap Script (type module for ES6) -->
+    <script type="module" src="src/js/app.js"></script>
+
+</body>
+</html>
